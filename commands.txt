@@ -1,0 +1,13 @@
+*** COMMAND TO COMMUNICATE WITH SHIPCLASSIFIER CONTAINER ***
+curl -X POST "http://127.0.0.1:8000/infer" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@C:/Users/User/Desktop/DSAID/data/299281.jpg;type=image/jpg"
+curl -X GET "http://127.0.0.1:8000/ping" -H "accept: application/json"
+
+*** COMMAND TO BUILD DOCKER IMAGE ***
+docker build -t shipclassifier:latest .
+
+*** COMMAND TO RUN DOCKER CONTAINER ***
+docker run --name shipclassifier -p 8000:8000 shipclassifier:latest
+
+*** COMMAND TO RUN STOP AND REMOVE CONTAINER ***
+docker stop shipclassifier
+docker rm shipclassifier
